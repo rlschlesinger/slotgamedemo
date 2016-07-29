@@ -86,9 +86,9 @@ body{
   float: left;
   padding-right: 1%;
   padding-left: 1%;
-  -webkit-animation: spin .5s infinite; /* Chrome, Safari, Opera */
+  -webkit-animation: spin .3s infinite; /* Chrome, Safari, Opera */
 
-  animation-duration: .5s infinite;
+  animation-duration: .3s infinite;
   animation-name: spin;
 
   margin-top: -55%;
@@ -108,6 +108,10 @@ body{
 
 @-webkit-keyframes spin {
   0% {margin-top: -55%;}
+  20% {margin-top: -45%;}
+  40% {margin-top: -35%;}
+  60% {margin-top: -25%;}
+  80% {margin-top: -15%;}
   100% {margin-top: 0;}
 }
 
