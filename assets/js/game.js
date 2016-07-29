@@ -1,19 +1,27 @@
 $(document).ready(function(){
 
   $("#spinbutton").click(function(){
-    spin();
+    var reels = document.getElementsByClassName('reel');
+    var i = 0;
+    setInterval(function(){
+      var reel = reels[i];
+      spin(reel);
+      i++;
+    }, 500);
+
+    setTimeout(function(){
+    for (var ii = 0; ii < reels.length ; ii++){
+      var reel = reels[ii];
+      stop(reel);
+    }}, 5000);
+
   });
 
-  function spin(){
-    var reels = document.getElementsByClassName('reel');
-      for (var i = 0; reels.length - 1; i++){
-        var reel = reels[i];
-        setTimeout(iterate(reel), 500);
-        setTimeout(function(){clearInterval();}, 1000);
-      }
+  function spin(item){
+    item.style.animationPlayState ="running";
   }
 
-  function iterate(item){
-    item.style.animationPlayState ="running";
+  function stop(item){
+    item.style.animationPlayState ="paused";
   }
 });

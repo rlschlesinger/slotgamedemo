@@ -86,11 +86,11 @@ body{
   float: left;
   padding-right: 1%;
   padding-left: 1%;
-  -webkit-animation: myfirst 1s infinite; /* Chrome, Safari, Opera */
-  -webkit-animation-direction: alternate; /* Chrome, Safari, Opera */
-  animation-duration: 1s infinite;
-  animation-name: myfirst;
-  animation-direction: alternate;
+  -webkit-animation: spin .5s infinite; /* Chrome, Safari, Opera */
+
+  animation-duration: .5s infinite;
+  animation-name: spin;
+
   margin-top: -55%;
   animation-play-state: paused;
 }
@@ -106,7 +106,7 @@ body{
 
 }
 
-@-webkit-keyframes myfirst {
+@-webkit-keyframes spin {
   0% {margin-top: -55%;}
   100% {margin-top: 0;}
 }
