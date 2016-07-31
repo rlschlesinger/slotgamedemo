@@ -45,17 +45,22 @@ $(document).ready(function(){
 
   //Function to insert images into reels
 
+  function insertImages(div, imgArray){
+    for (var i = 0; i < imgArray.length; i++){
+      var ranNum = Math.floor(Math.random() * (10 + 1));
+      var image = imgArray[ranNum];
+      //Insert images into reel
+      div.appendChild(image);
+    }
+  }
+
   function loadImages(imageArray, reelArray){
     //Iterate through reels
-    for (var i = 0; i < 5; i++){
+    for (var i = 0; i < div.length; i++){
       var div = document.getElementById(reelArray[i]);
       //Iterate through images
-      for (var i = 0; i < 10; i++){
-        var ranNum = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
-        var image = imageArray[ranNum];
-        //Insert images into reel
-        div.appendChild(image);
-      }
+      insertImages(div, imageArray)
+
     }
   }
 
