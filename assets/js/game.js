@@ -47,8 +47,10 @@ $(document).ready(function(){
 
   function insertImages(div, imgArray){
     for (var i = 0; i < imgArray.length; i++){
+      //Randomize order of images
       var ranNum = Math.floor(Math.random() * (10 + 1));
-      var image = imgArray[ranNum];
+      //Copy instance of image to variable
+      var image = imgArray[ranNum].cloneNode(true);
       //Insert images into reel
       div.appendChild(image);
     }
@@ -56,7 +58,7 @@ $(document).ready(function(){
 
   function loadImages(imageArray, reelArray){
     //Iterate through reels
-    for (var i = 0; i < div.length; i++){
+    for (var i = 0; i < reelArray.length; i++){
       var div = document.getElementById(reelArray[i]);
       //Iterate through images
       insertImages(div, imageArray)
@@ -64,19 +66,21 @@ $(document).ready(function(){
     }
   }
 
+  //Call load image function
   loadImages(imgArray, reelIDs);
-  console.log("load images ran");
 
-
+  //On click function to spin reels
   $("#spinbutton").click(function(){
     var reels = document.getElementsByClassName('reel');
     var i = 0;
+    //Spin reels one at a time
     setInterval(function(){
       var reel = reels[i];
       spin(reel);
       i++;
     }, 400);
 
+    //Stop reels
     setTimeout(function(){
     for (var ii = 0; ii < reels.length ; ii++){
       var reel = reels[ii];
@@ -92,4 +96,5 @@ $(document).ready(function(){
   function stop(item){
     item.style.animationPlayState ="paused";
   }
+
 });
